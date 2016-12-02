@@ -20,13 +20,13 @@ public class PlayerMovement : MonoBehaviour {
        
         moveVelocity = 0;
        
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             //Debug.Log("Right Arrow is pressed!!");
             moveVelocity += movementSpeed;                
         }
 
-         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.L))
+         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
          {
             //Debug.Log("Left Arrow is pressed!!");
             moveVelocity -= movementSpeed;                
