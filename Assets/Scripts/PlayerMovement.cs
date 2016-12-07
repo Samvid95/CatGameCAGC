@@ -6,9 +6,9 @@ public class PlayerMovement : MonoBehaviour {
     
     private float moveVelocity;
     private bool hit = false;
+    public static int health = 500;
 
-   
-
+    public LevelManager levelManager;
 	// Use this for initialization
 	void Start () {
         
@@ -47,7 +47,10 @@ public class PlayerMovement : MonoBehaviour {
         }
         hit = false;
         
-        
+        if(health < 100)
+        {
+            Debug.Log("Game Over!!");
+        }
     }
 
     
@@ -56,6 +59,16 @@ public class PlayerMovement : MonoBehaviour {
         if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Claw") && col.gameObject.tag== "Ghost")
         {
             Destroy(col.gameObject);
+        }
+        else if(col.gameObject.tag == "Ghost")
+        {
+            health -= 100;
+            Destroy(col.gameObject);
+        }
+        if(col.gameObject.tag == "Fence")
+        {
+            Debug.Log("You win!!!");
+            //levelManager.LoadLevel("WinLevel");
         }
     }
     
